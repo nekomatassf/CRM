@@ -29,6 +29,8 @@ public interface SaleService{
 	//客户信息添加
 	public void add(SaleKhinfo s);
 	
+	public void delete(Long id);
+	
 	public PageInfo<SaleKhinfo> lossselect1(Integer pageNum,Integer pageSize,SaleKhinfo s);
 	
 }

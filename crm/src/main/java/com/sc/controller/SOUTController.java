@@ -38,22 +38,20 @@ public class SOUTController {
 			@RequestParam(defaultValue="5")Integer pageSize,SaleSoutOrder sout){
 		
 		mav.addObject("p", sOutOrderService.select(pageNum, pageSize,sout));
+		System.out.println("销售金额销售金额，");
 		//跳转到销售出库单页面
 		mav.setViewName("yjs/selectSOUTPage");
 		
-		System.out.println("分页--SOUT");
-		
+		System.out.println("分页--SOUT");		
 		return mav;
 	}
 	
-	
-	
-	//出库--有问题待解决--还未写完
+	//出库--
 	@RequestMapping("/cuku.do")
 	public ModelAndView cukulistPage(ModelAndView mav,Long soid){
 		SaleSoutOrder sout = this.sOutOrderService.getSordeID(soid);
-		sout.setOrderStatus("0");//0--已发货
-		sout.setSstatus("0");//0--已发货
+		sout.setOrderStatus("已发货");//0--已发货
+		sout.setSstatus("已出库");//已出库
 		sOutOrderService.update(sout);
 		List<SaleSinfo> glist = this.sInfoService.getsoidlist(soid);//通过销售编号查询的商品编号小集合
 		System.out.println("sssssssssssssss");
@@ -69,17 +67,12 @@ public class SOUTController {
 			System.out.println("得到差值"+(kcsl-cuksl));
 			String cz=Integer.toString(kcsl-cuksl);
 			kc.setKcNum(cz);
-			kcGoodsService.update(kc);
-			
-			
+			kcGoodsService.update(kc);	
 			}			
 			mav.setViewName("yjs/selectSOUTPage");
 			return mav;
 		}
 		
-
-
-	
 	 //去添加
 		 @RequestMapping("/add.do")//去页面转一圈
 		 public ModelAndView addofficeKpi(ModelAndView mav){

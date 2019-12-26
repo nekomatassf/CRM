@@ -101,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         <br>
                                         <div class="form-group">
                                               <div class="col-sm-8">
-                                                                                                   联系内容：<input id="contactContent" name="contactContent" class="form-control" style="height: 200px"  type="text" value="${info.contactContent}">
+                                                                                                   联系内容：<input id="contactContent" name="contactContent" class="form-control"   type="text" value="${info.contactContent}">
                                               
                                               </div>
                                          </div>

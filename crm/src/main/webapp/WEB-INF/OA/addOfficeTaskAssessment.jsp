@@ -59,13 +59,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div>
                     </div>
                     <div class="ibox-content">
-                      <form action="../OfficeTaskAssessmentController/add.do" method="post" target="_self">
-                        <table class="table table-striped table-bordered table-hover dataTables-example" style="font-family:宋体; font-size: 8px;">
-                                     <tr style="font-family:宋体; font-size: 8px;"><td style="font-family:宋体; font-size: 8px;">任务标题</td><td><input type="text" name="tsakTitle" style="width:100%"></td></tr>
-                                    <tr style="font-family:宋体; font-size: 8px;"><td style="font-family:宋体; font-size: 8px;">任务具体内容</td><td><textarea name="taskConcreteContent" style="width:100%"> </textarea></td></tr>
-                                   <tr style="font-family:宋体; font-size: 8px;"><td  style="font-family:宋体; font-size: 8px;">任务发布人</td><td><input type="text" name="taskIssuer" style="width:100%"></td></tr>
-                                    <tr style="font-family:宋体; font-size: 8px;">
-                                    <td style="font-family:宋体; font-size: 8px;">
+                      <form action="<%=basePath%>OfficeTaskAssessmentController/add.do" method="post" target="_self">
+                        <table class="table table-striped table-bordered table-hover dataTables-example" style="font-family:宋体; ">
+                                     <tr style="font-family:宋体; "><td style="font-family:宋体; ">任务标题</td><td><input type="text" name="tsakTitle" style="width:100%"></td></tr>
+                                    <tr style="font-family:宋体; "><td style="font-family:宋体; ">任务具体内容</td><td><textarea name="taskConcreteContent" style="width:100%"> </textarea></td></tr>
+                                   <tr style="font-family:宋体; "><td  style="font-family:宋体; ">任务发布人</td><td><input type="text" name="taskIssuer" style="width:100%"></td></tr>
+                                    <tr style="font-family:宋体; ">
+                                    <td style="font-family:宋体; ">
                                     任务考核指标
                                     </td>
                                     <td>
@@ -77,16 +77,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     </select>
                                     </td>
                                     </tr>
-                                    <tr style="font-family:宋体; font-size: 8px;"><td style="font-family:宋体; font-size: 8px;">任务开始时间</td><td><input name="taskStartTime" class=" Wdate"readonly="readonly" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  style="width:100%;height: 60%"/></td></tr>
+                                    <tr style="font-family:宋体; "><td style="font-family:宋体; ">任务开始时间</td><td><input name="taskStartTime" class=" Wdate"readonly="readonly" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  style="width:100%;height: 60%"/></td></tr>
                                     
                                     
                                     
-                                    <tr style="font-family:宋体; font-size: 8px;"><td style="font-family:宋体; font-size: 8px;">任务结束时间</td><td><input name="taskStopTime" class=" Wdate"readonly="readonly" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  style="width:100%;height: 60%"/></td></tr>
+                                    <tr style="font-family:宋体; "><td style="font-family:宋体; ">任务结束时间</td><td><input name="taskStopTime" class=" Wdate"readonly="readonly" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  style="width:100%;height: 60%"/></td></tr>
                                     
 <%--                                     修改：<input name="birthday" class="Wdate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})"
-                     value="<fmt:formatDate value="${user.birthday }"pattern="yyyy-MM-dd" />" /> --%>
+                                       value="<fmt:formatDate value="${user.birthday }"pattern="yyyy-MM-dd" />" /> --%>
                                     
-                                    <tr style="font-family:宋体; font-size: 8px;"><td style="font-family:宋体; font-size: 8px;">公司编号</td><td><input type="text" name="companyId" style="width:100%"></td></tr>
+                                    <tr style="font-family:宋体; "><td style="font-family:宋体; ">公司编号</td><td><input type="text" name="companyId" style="width:100%"></td></tr>
                                    <tr> <td style="text-align: center;" colspan="1"><input type="submit" value="提交"></td>
                                        <td style="text-align: center;" colspan="1"><input type="reset" value="重置"></td>
                                     </tr>
@@ -100,17 +100,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      
     		
        
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.5"></script>
-    <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
-    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="<%=basePath %>js/jquery.min.js?v=2.1.4"></script>
+    <script src="<%=basePath %>js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="<%=basePath %>js/plugins/jeditable/jquery.jeditable.js"></script>
+    <script src="<%=basePath %>js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="<%=basePath %>js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="<%=basePath %>js/content.min.js?v=1.0.0"></script>
     <script>
         $(document).ready(function(){$(".dataTables-example").dataTable();var oTable=$("#editable").dataTable();oTable.$("td").editable("../example_ajax.php",{"callback":function(sValue,y){var aPos=oTable.fnGetPosition(this);oTable.fnUpdate(sValue,aPos[0],aPos[1])},"submitdata":function(value,settings){return{"row_id":this.parentNode.getAttribute("id"),"column":oTable.fnGetPosition(this)[2]}},"width":"90%","height":"100%"})});function fnClickAddRow(){$("#editable").dataTable().fnAddData(["Custom row","New row","New row","New row","New row"])};
     </script>
     <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
-
 </body>
 
 </html>

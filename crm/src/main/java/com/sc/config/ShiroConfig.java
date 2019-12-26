@@ -32,9 +32,9 @@ public class ShiroConfig {
 	public CustomRealmMD5 customRealmMD5(){
 		CustomRealmMD5 realm=new CustomRealmMD5();
 		HashedCredentialsMatcher matcher=new HashedCredentialsMatcher();
-		/*matcher.setHashAlgorithmName("md5");
+		matcher.setHashAlgorithmName("md5");
 		matcher.setHashIterations(3);
-		realm.setCredentialsMatcher(matcher);*/
+		realm.setCredentialsMatcher(matcher);
 		return realm;
 		
 	}
@@ -91,8 +91,7 @@ public class ShiroConfig {
 		
 		filterMap.put("/datagrid.jsp", "anon");
 		filterMap.put("/usersctrl/listjson.do", "anon");
-		
-		/*≤‚ ‘*/
+	
 		filterMap.put("/test/test1.do", "anon");
 		
 		//…Ë÷√»®œﬁ

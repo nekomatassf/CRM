@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -71,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <tr>
                                     <td>${info.recordPriority}</td>
                                     <td>${info.feedbackType}</td>
-                                    <td>${info.feedbackTime}</td>
+                                    <td><fmt:formatDate value="${info.feedbackTime}" pattern="yyyy-MM-dd"/></td>
                                     <td>${info.feedbaclTheme}</td>
                                     <td>${info.feedbackDiscribe}</td>
                                     <td>${info.feedbackSource}</td>
@@ -79,7 +80,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <td>${info.personInCharge}</td>                                    
                                     <td>${info.state}</td>
                                     <td>
-                                    <a></a>                                    
+                                    <button class="btn btn-outline btn-info  dim" data-toggle="modal" data-target="#${info.feedbackRecorId}"  data-placement="bottom" title="处理">
+                                     <i class="fa fa-paste"></i>
+                                    </button>
+                                    
+                           <div class="modal inmodal fade" id="${info.feedbackRecorId}" tabindex="-1" role="dialog"  aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title">处理界面</h4>
+                                        </div>
+                                        <form action="SalekhlxjlController/fkupdate.do" method="post" target="_self">
+                                       
+                                        <div class="modal-body">
+                                        
+                                            <div>
+                                            <div class="col-sm-8">
+                                            <input type="hidden" name="feedbackRecorId" value="${info.feedbackRecorId}">
+                                            <input type="hidden" name="userId" value="${info.userId}">
+                                            <input type="hidden" name="recordPriority" value="${info.recordPriority}">
+                                            <input type="hidden" name="feedbackType" value="${info.feedbackType}">
+                                            <input type="hidden" name="feedbackTime" value="${info.feedbackTime}">
+                                            <input type="hidden" name="feedbaclTheme" value="${info.feedbaclTheme}">
+                                            <input type="hidden" name="feedbackDiscribe" value="${info.feedbackDiscribe}">
+                                            <input type="hidden" name="feedbackSource" value="${info.feedbackSource}">
+                                                                                              分析：<input id="analysis" name="analysis" type="text" class="form-control" value="${info.analysis}">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="col-sm-8">
+                                                                                              负责人：<input id="personInCharge" name="personInCharge" class="form-control" type="text" value="${info.personInCharge}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8">
+                                                                                              状态：<input id="state" name="state" class="form-control" type="text" value="已处理">
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                  
+                                        </div>
+                                       
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                                            <button type="submit" class="btn btn-primary">保存</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>                                     
                                     <a href="SalekhlxjlController/fkdelete.do?id=${info.feedbackRecorId}" target="_self" onclick="return confirm('是否确定删除？')">删除</a> 
                                     
                                     </td>

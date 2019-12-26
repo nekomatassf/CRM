@@ -139,4 +139,12 @@ public class SaleServiceImpl implements SaleService {
 	
 	}
 
+
+	@Override
+	public void delete(Long id) {
+		if(id!=null){
+			this.saleKhinfoMapper.deleteByPrimaryKey(id);
+		}
+	}
+
 }

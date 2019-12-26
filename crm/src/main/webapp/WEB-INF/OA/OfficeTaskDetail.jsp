@@ -60,26 +60,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          
                <table>
                      <h1>任务安排详情</h1>
-               <tr style="font-family:宋体; font-size: 8px;">
+               <tr style="font-family:宋体; ">
               <input type="hidden" name="taskDetailId" value="${d.taskDetailId }">
-              <td style="font-family:宋体; font-size: 8px;">任&nbsp;&nbsp;务&nbsp;&nbsp;编&nbsp;&nbsp;号:</td>  
-              <td style="font-family:宋体; font-size: 8px;"><input type="text" name="taskId" value="${d.taskId}" readonly="readonly"></td>
+              <td style="font-family:宋体; ">任&nbsp;&nbsp;务&nbsp;&nbsp;编&nbsp;&nbsp;号:</td>  
+              <td style="font-family:宋体; "><input type="text" name="taskId" value="${d.taskId}" readonly="readonly"></td>
            </tr>
            <tr>
               <td>接&nbsp;&nbsp;受&nbsp;&nbsp;用&nbsp;&nbsp;户:</td>
               <td><input type="text" name="taskUserId" value="${d.taskUserId }" readonly="readonly"></td>
            </tr>
-           <tr style="font-family:宋体; font-size: 8px;">
-              <td style="font-family:宋体; font-size: 8px;">任务是否完成:</td>
-              <td style="font-family:宋体; font-size: 8px;"><input type="text" name="taskIsfinshed" value="${d.taskIsfinshed }" readonly="readonly"></td>
+           <tr style="font-family:宋体; ">
+              <td style="font-family:宋体; ">任务是否完成:</td>
+              <td style="font-family:宋体; "><input type="text" name="taskIsfinshed" value="${d.taskIsfinshed }" readonly="readonly"></td>
            </tr>
-            <tr style="font-family:宋体; font-size: 8px;">
-              <td style="font-family:宋体; font-size: 8px;">当&nbsp;&nbsp;前&nbsp;&nbsp;状&nbsp;&nbsp;态:</td>
-              <td style="font-family:宋体; font-size: 8px;"><input type="text" name="status1" value="${d.status}" readonly="readonly"></td>
+            <tr style="font-family:宋体; ">
+              <td style="font-family:宋体; ">当&nbsp;&nbsp;前&nbsp;&nbsp;状&nbsp;&nbsp;态:</td>
+              <td style="font-family:宋体; "><input type="text" name="status1" value="${d.status}" readonly="readonly"></td>
             </td>
-             <tr style="font-family:宋体; font-size: 8px;">
-              <td style="font-family:宋体; font-size: 8px;">公&nbsp;&nbsp;司&nbsp;&nbsp;id:</td>
-              <td style="font-family:宋体; font-size: 8px;"><input type="text" name="companyId" value="${d.companyId }" readonly="readonly"></td>
+             <tr style="font-family:宋体; ">
+              <td style="font-family:宋体; ">公&nbsp;&nbsp;司&nbsp;&nbsp;id:</td>
+              <td style="font-family:宋体; "><input type="text" name="companyId" value="${d.companyId }" readonly="readonly"></td>
             </td>
             </tr>
             </table>
@@ -90,12 +90,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
      </div>
     </div>   
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.5"></script>
-    <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
-    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="<%=basePath %>js/jquery.min.js?v=2.1.4"></script>
+    <script src="<%=basePath %>js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="<%=basePath %>js/plugins/jeditable/jquery.jeditable.js"></script>
+    <script src="<%=basePath %>js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="<%=basePath %>js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="<%=basePath %>js/content.min.js?v=1.0.0"></script>
     <script>
         $(document).ready(function(){$(".dataTables-example").dataTable();var oTable=$("#editable").dataTable();oTable.$("td").editable("../example_ajax.php",{"callback":function(sValue,y){var aPos=oTable.fnGetPosition(this);oTable.fnUpdate(sValue,aPos[0],aPos[1])},"submitdata":function(value,settings){return{"row_id":this.parentNode.getAttribute("id"),"column":oTable.fnGetPosition(this)[2]}},"width":"90%","height":"100%"})});function fnClickAddRow(){$("#editable").dataTable().fnAddData(["Custom row","New row","New row","New row","New row"])};
     </script>

@@ -38,9 +38,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="row">
                 <div class="col-sm-12">
                     <div class="ibox float-e-margins">
-                       <form action="SalekhlossController/list.do" method="post" target="_self">
+                       <form action="SalekhinfoController/list.do" method="post" target="_self">
                             <div class="input-group">
-                            <input type="text" placeholder="请输入客户编号" name="userId" class="input form-control">
+                            <input type="text" placeholder="请输入客户名称" name="userName" class="input form-control">
                             <span class="input-group-btn">
                             <button type="submit" class="btn btn btn-primary"><i class="fa fa-search"></i> 搜索</button>
                             </span>    
@@ -85,19 +85,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="modal inmodal fade" id="${info.userId}" tabindex="-1" role="dialog"  aria-hidden="true">
                                  
                                 <div class="modal-dialog modal-sm">
-                                    <form action="SalekhlossController/lossupdate.do" method="post" target="_self">
+                                    <form action="SalekhlossController/lossupdate.do?id=${info.userId} " method="post" target="_self">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                            <h4 class="modal-title">修改界面</h4>
+                                            <h4 class="modal-title">流失界面</h4>
                                         </div>
                                         <div class="modal-body">
                                            
                                            <input type="hidden" name="userId"  value="${info.userId}">
-                                           <span><ul><li>操作人员编号：<input type="text" name="operatorId"  "> </li></ul></span> 
-                                           <span><ul><li>处理方式：<input type="text" name="processingMode"  "> </li></ul></span> 
-                                           <span><ul><li>处理措施：<input type="text" name="treatmentMeasures"  "> </li></ul></span> 
-                                           <span><ul><li>状态：<input type="text" name="isLoss"  > </li></ul></span> 
+                                           <span><ul><li>操作人员编号：<input type="text" name="operatorId"  > </li></ul></span> 
+                                           <span><ul><li>处理方式：<input type="text" name="processingMode"  > </li></ul></span> 
+                                           <span><ul><li>处理措施：<input type="text" name="treatmentMeasures"  > </li></ul></span> 
+                                           <span><ul><li>状态：<input type="text" name="isLoss" value="流失" > </li></ul></span> 
                                            
                                         </div>
                                       

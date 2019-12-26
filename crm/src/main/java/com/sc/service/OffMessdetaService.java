@@ -33,6 +33,10 @@ public interface OffMessdetaService {
 		//查询列表-分页
 		 public PageInfo<OffMessdeta> selectdeta(Integer pageNum,Integer pageSize,Long sid);
 		 
+		 
+		//垃圾箱
+		 public PageInfo<OffMessdeta> selectlajxiang(Integer pageNum,Integer pageSize,Long sid);
+		 
 		 //模糊查询收件箱
 		 public PageInfo<OffMessdeta> sousuod(Integer pageNum,Integer pageSize,Long reid,String starch);
 		 

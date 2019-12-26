@@ -109,13 +109,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li>  
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">人事管理</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="SysUsersInfoCtrl/listPage.do">用户表单</a>
+                            <li><a class="J_menuItem" href="SysUsersInfoCtrl/listPage.do">员工信息</a>
                             </li>
-                            <li><a class="J_menuItem" href="SyDeptCtrl/listPage.do">部门表单</a>
+                            <li><a class="J_menuItem" href="SyDeptCtrl/listPage.do">部门信息</a>
                             </li>
-                            <li><a class="J_menuItem" href="SysPostCtrl/listPage.do">职务信息表单</a>
+                            <li><a class="J_menuItem" href="SysPostCtrl/listPage.do">职务信息</a>
                             </li>
-                            <li><a class="J_menuItem" href="SysCompanyInfoCtrl/listPage.do">公司信息表</a>
+                            <li><a class="J_menuItem" href="SysCompanyInfoCtrl/listPage.do">公司信息</a>
                             </li>
                         </ul>
                     </li>
@@ -140,7 +140,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </li>
                             
                             <li>
-                                <a href="cgdXqCtrl/rukuList.do">采购_出库<span class="fa arrow"></span></a>
+                                <a href="cgdXqCtrl/cgdxqList.do">采购_出库<span class="fa arrow"></span></a>
                                
                             </li>  
                             

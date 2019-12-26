@@ -55,9 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </div>
                     <div class="ibox-content">
                         <form method="post" class="form-horizontal" action="../KCCKControllerCtrl/update.do" target="_self">
-                            div class="form-group">
-                                
-
+                        
                                 <div class="col-sm-10">
                                     <input type="hidden" class="form-control" value="${kcck.cangkuId}" name="cangkuId">
                                 </div>
@@ -90,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-primary" type="submit">确认添加</button>
+                                    <button class="btn btn-primary" type="submit">修改</button>
                                     <button class="btn btn-white" type="reset">清空</button>
                                 </div>
                             </div>

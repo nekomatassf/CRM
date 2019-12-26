@@ -263,6 +263,13 @@
   </select>
   
   
+  <select id="lajixiang" resultMap="detailsidMap" parameterType="com.sc.entity.OffMessdetaExample" >
+   			select * from OFF_MESSDETA d
+	LEFT JOIN OFF_MESS m ON d.MESSID=m.MESSID
+	where d.RECEIVERID=#{sid} and d.MESSSTATE='垃圾箱'
+  </select>
+  
+  
   
   
 </mapper>

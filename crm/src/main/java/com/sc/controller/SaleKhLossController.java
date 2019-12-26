@@ -41,10 +41,12 @@ public class SaleKhLossController {
 	@RequestMapping("/lossupdate.do")
 	public ModelAndView lxjlupdate(ModelAndView mav,
 			HttpServletRequest req,
+			Long id,
 			SaleKhloss l){
 		System.out.println(l);
 		l.setLastModified(new Date());
 		this.saleKhLossService.lossupdate(l);
+		this.saleService.delete(id);
 		mav.setViewName("redirect:list.do");//重定向到list方法
 		return mav;		
 	}

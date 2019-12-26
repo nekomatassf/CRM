@@ -35,8 +35,8 @@ public class OfficeTaskDetailServiceImpl implements OfficeTaskDetailService {
 
 	@Override
 	public void delete(OfficeTaskDetail d) {
-		if(d!=null&&d.getTaskId()!=null){
-			this.OfficeTaskDetailMapper.deleteByPrimaryKey(d.getTaskId());
+		if(d!=null&&d.getTaskDetailId()!=null){
+			this.OfficeTaskDetailMapper.deleteByPrimaryKey(d.getTaskDetailId());
 		}
 
 	}

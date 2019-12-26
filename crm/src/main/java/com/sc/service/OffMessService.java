@@ -31,7 +31,7 @@ public interface OffMessService {
 	    public List<OffMess> select();
 	 
 	    //ËÑË÷
-	    public PageInfo<OffMess> sousuo(Integer pageNum,Integer pageSize,String  starch);
+	    public PageInfo<OffMess> sousuo(Integer pageNum,Integer pageSize,String sender,String  starch);
 	    public List<OffMessdeta> sousuod(Long mid);
 
 	   

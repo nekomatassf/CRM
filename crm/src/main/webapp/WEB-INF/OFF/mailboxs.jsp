@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 </li>
                                 
                                 <li>
-                                    <a target="_self" href=""> <i class="fa fa-trash-o"></i> 垃圾箱</a>
+                                    <a target="_self" href="../offmessdetactrl/listlajixiang.do"> <i class="fa fa-trash-o"></i> 垃圾箱</a>
                                 </li>
                             </ul>
                            
@@ -175,8 +175,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         function del(did){
         
-               swal({title:"您确定要删除这条信息吗",
-               		text:"删除后将无法恢复，请谨慎操作！",
+               swal({title:"您确定要将这条消息放入垃圾箱吗？",
+               		text:"删除后可从垃圾箱恢复！",
                		type:"warning",
                		showCancelButton:true,
                		confirmButtonColor:"#DD6B55",
@@ -190,7 +190,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  				dataType:"json",
 			  				success:function(d){
 			  				    console.log(11111)
-			  					swal({title:"删除成功！",text:"您已经永久删除了这条信息。",type:"success"},function(){
+			  					swal({title:"删除成功！",text:"您已经删除了这条信息。",type:"success"},function(){
 			  					    $("#btn1").click();
 			  					});
 			  					

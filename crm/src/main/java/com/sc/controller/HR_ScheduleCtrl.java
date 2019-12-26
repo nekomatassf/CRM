@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sc.entity.OOfficePerSche;
+import com.sc.entity.SysUsers;
 import com.sc.service.HR_PerAgendaService;
 
 @Controller
@@ -22,6 +24,9 @@ public class HR_ScheduleCtrl {
    
 	@Resource
 	private HR_PerAgendaService hR_PerAgendaServiceImp;
+	@Autowired
+	HttpSession httpSession;
+	
 	
 	
 	// 涓汉鏃ョ▼鍒楄〃锛堝垎椤垫煡璇級
@@ -32,8 +37,9 @@ public class HR_ScheduleCtrl {
 		
 		
 		//---闇�瑕佽幏鍙栫敤鎴穒d鍜屽叕鍙竔d---start
-		sche.setUid("1");
-		sche.setCid("1");
+		SysUsers user =(SysUsers)this.httpSession.getAttribute("nowuser");
+		sche.setUid(user.getUsersName());
+		sche.setCid(user.getCompanyId().toString());
 		//---闇�瑕佽幏鍙栫敤鎴穒d鍜屽叕鍙竔d---end
 		
 		System.out.println("=====瀵硅薄淇℃伅list====="+sche);
@@ -52,8 +58,9 @@ public class HR_ScheduleCtrl {
 		
 		
 		//---闇�瑕佽幏鍙栫敤鎴穒d鍜屽叕鍙竔d---start
-		sche.setUid("1");
-		sche.setCid("1");
+		SysUsers user =(SysUsers)this.httpSession.getAttribute("nowuser");
+		sche.setUid(user.getUsersId().toString());
+		sche.setCid(user.getCompanyId().toString());
 		//---闇�瑕佽幏鍙栫敤鎴穒d鍜屽叕鍙竔d---end
 		
 		sche.setAllDay("0");
@@ -75,8 +82,9 @@ public class HR_ScheduleCtrl {
 		
 		
 		//---闇�瑕佽幏鍙栫敤鎴穒d鍜屽叕鍙竔d---start
-		sche.setUid("1");
-		sche.setCid("1");
+		SysUsers user =(SysUsers)this.httpSession.getAttribute("nowuser");
+		sche.setUid(user.getUsersId().toString());
+		sche.setCid(user.getCompanyId().toString());
 		//---闇�瑕佽幏鍙栫敤鎴穒d鍜屽叕鍙竔d---end
 		
 		sche.setAllDay("0");

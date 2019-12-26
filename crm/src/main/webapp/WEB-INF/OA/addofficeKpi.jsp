@@ -61,10 +61,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                       <center>
     <form action="../OfficeKpictrl/addofficeKpi.do" target="_self">
-    <table style="font-family:宋体; font-size: 8px;" target="_self">
-           <tr style="font-family:宋体; font-size: 8px;"><td style="font-family:宋体; font-size: 8px;">考核任务指标：</td><td><input type="text" name="kpiKpi"  ></td></tr>
-           <tr style="font-family:宋体; font-size: 8px;"><td style="font-family:宋体; font-size: 8px;">考核任务详情：</td><td><input type="text" name="kpiDetail"></td></tr>
-           <tr style="font-family:宋体; font-size: 8px;"><td style="font-family:宋体; font-size: 8px;">所属公司：</td><td><input type="text" name="companyId" ></td></tr>
+    <table style="font-family:宋体; " target="_self">
+           <tr style="font-family:宋体; "><td style="font-family:宋体; ">考核任务指标：</td><td><input type="text" name="kpiKpi"  ></td></tr>
+           <tr style="font-family:宋体; "><td style="font-family:宋体; ">考核任务详情：</td><td><input type="text" name="kpiDetail"></td></tr>
+           <tr style="font-family:宋体; "><td style="font-family:宋体; ">所属公司：</td><td><input type="text" name="companyId" ></td></tr>
            <%-- <input type="hidden" name="finalUpdataTime" value="<%=new Date().getTime() %>"> --%>
           <tr><td><input type="submit" value="提交"></td><td>
            <input type="reset" value="重置"></td></tr>
@@ -79,12 +79,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      
     		
         
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.5"></script>
-    <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
-    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script src="js/content.min.js?v=1.0.0"></script>
+    <script src="<%=basePath %>js/jquery.min.js?v=2.1.4"></script>
+    <script src="<%=basePath %>js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="<%=basePath %>js/plugins/jeditable/jquery.jeditable.js"></script>
+    <script src="<%=basePath %>js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="<%=basePath %>js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="<%=basePath %>js/content.min.js?v=1.0.0"></script>
     <script>
         $(document).ready(function(){$(".dataTables-example").dataTable();var oTable=$("#editable").dataTable();oTable.$("td").editable("../example_ajax.php",{"callback":function(sValue,y){var aPos=oTable.fnGetPosition(this);oTable.fnUpdate(sValue,aPos[0],aPos[1])},"submitdata":function(value,settings){return{"row_id":this.parentNode.getAttribute("id"),"column":oTable.fnGetPosition(this)[2]}},"width":"90%","height":"100%"})});function fnClickAddRow(){$("#editable").dataTable().fnAddData(["Custom row","New row","New row","New row","New row"])};
     </script>

@@ -17,7 +17,7 @@ public class OffMessdetaServiceimpl implements OffMessdetaService {
 	
 	@Autowired
 	OffMessdetaMapper  offMessdetaMapper;
-	
+	@Autowired
 	SysUsersMapper  sysUsersMapper;
 
 	@Override
@@ -107,6 +107,20 @@ public class OffMessdetaServiceimpl implements OffMessdetaService {
 		
 		return page;
 		 
+	}
+
+	//垃圾箱列表
+	@Override
+	public PageInfo<OffMessdeta> selectlajxiang(Integer pageNum, Integer pageSize, Long sid) {
+		//设置分页数据，开始分页
+		PageHelper.startPage(pageNum, pageSize);
+		//查询当前页的集合数据
+		List<OffMessdeta> list = this.offMessdetaMapper.lajixiang(sid);
+		
+		//封装成pageinfo对象
+		PageInfo<OffMessdeta> page=new PageInfo<OffMessdeta>(list);
+		
+		return page;
 	}
 
 	

@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                
 
                                 <li>
-                                    <a target="_self" href=""> <i class="fa fa-trash-o"></i> 垃圾箱</a>
+                                    <a target="_self" href="../offmessdetactrl/listlajixiang.do"> <i class="fa fa-trash-o"></i> 垃圾箱</a>
                                 </li>
                             </ul>
                       

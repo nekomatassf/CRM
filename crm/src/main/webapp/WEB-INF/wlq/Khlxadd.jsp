@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body class="gray-bg">
     <center>
-    <h1>添加用户</h1>
+    <h1>添加联系人</h1>
     </center>
     
          <div class="ibox-content">
@@ -60,13 +60,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="form-group">
                         <label class="col-sm-3 control-label">部门：</label>
                         <div class="col-sm-8">
-                            <input id="department" name="department" class="form-control" type="text">
+                            <input id="department" name="department" class="form-control" type="text" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">手机：</label>
                         <div class="col-sm-8">
-                            <input id="mphone" name="mphone" class="form-control">
+                            <input id="mphone" name="mphone" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -78,7 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="form-group">
                         <label class="col-sm-3 control-label">电子邮箱：</label>
                         <div class="col-sm-8">
-                            <input id="eMail" name="eMail" class="form-control">
+                            <input id="eMail" name="eMail" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -96,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="form-group">
                         <label class="col-sm-3 control-label">公司编号：</label>
                         <div class="col-sm-8">
-                            <input id="companyId" name="companyId" class="form-control">
+                            <input id="companyId" name="companyId" class="form-control" required>
                         </div>
                     </div>
                                         

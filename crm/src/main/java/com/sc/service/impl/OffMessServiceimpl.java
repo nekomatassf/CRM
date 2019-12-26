@@ -120,7 +120,7 @@ public class OffMessServiceimpl implements OffMessService {
 	}
 
 	@Override
-	public PageInfo<OffMess> sousuo(Integer pageNum, Integer pageSize, String starch) {
+	public PageInfo<OffMess> sousuo(Integer pageNum, Integer pageSize,String sender, String starch) {
 		//设置分页数据，开始分页
 				System.out.println("进入服务器接口");
 				PageHelper.startPage(pageNum, pageSize);
@@ -130,7 +130,8 @@ public class OffMessServiceimpl implements OffMessService {
 				                if(starch!=null){
 				                	c.andSenderEqualTo(starch);
 				                }*/
-			    List<OffMess> list = offMessMapper.sousuo(starch);
+			    List<OffMess> list = offMessMapper.sousuo(sender, starch);
+			    System.out.println(sender+starch);
 				//封装成pageinfo对象
 				PageInfo<OffMess> page=new PageInfo<OffMess>(list);
 				return page;

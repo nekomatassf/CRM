@@ -144,4 +144,16 @@ public class SalekhlxjlController {
 		mav.setViewName("redirect:fkcx.do");//重定向到list方法
 		return mav;
 	}
+	
+	@RequestMapping("/fkupdate.do")
+	public ModelAndView fkupdate(ModelAndView mav,
+			HttpServletRequest req,
+			SaleKhfeedback f){
+		f.setLastModified(new Date());
+		this.salekhlxjkService.fkupdate(f);
+		mav.setViewName("redirect:fkcx.do");//重定向到list方法
+		return mav;		
+	}
+	
+	
 }

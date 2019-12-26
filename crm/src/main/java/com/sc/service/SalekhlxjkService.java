@@ -22,5 +22,7 @@ public interface SalekhlxjkService {
 	public void fkadd(SaleKhfeedback f);
 	
 	public void fkdelete(Long id);
+	
+	public void fkupdate(SaleKhfeedback f);
 
 }

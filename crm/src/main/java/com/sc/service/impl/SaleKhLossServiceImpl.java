@@ -47,7 +47,7 @@ public class SaleKhLossServiceImpl implements SaleKhLossService {
 	@Override
 	public void lossupdate(SaleKhloss l) {
 		if(l!=null){
-			this.saleKhlossMapper.updateByPrimaryKey(l);
+			this.saleKhlossMapper.insert(l);
 		}
 		
 	}

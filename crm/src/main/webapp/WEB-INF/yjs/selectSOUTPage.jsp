@@ -96,8 +96,7 @@
 										<td>${k.sorderId }</td>
 										<td><fmt:formatDate value="${k.sorderDate}"
 												pattern="yyyy-MM-dd HH:mm:ss" />
-										</td>
-										<td>${k.invoiceNum}</td>
+										</td>										
 										<td>${k.uid }</td>
 										<td>${k.cid}</td>
 										<td>${k.samount}</td>
@@ -109,10 +108,13 @@
 										<td><fmt:formatDate value="${k.lastModifyTime}"
 												pattern="yyyy-MM-dd HH:mm:ss" />
 										</td>
-										<td><%-- <%=basePath%>sinfoctrl/ --%>
-										<a href="<%=basePath%>SOUTControllerCtrl/cuku.do?soid=${k.sorderId }">出库</a>
+										<td>
+										<c:if test="${k.sstatus=='未出库'}">							
+										<a href="cuku.do?soid=${k.sorderId }">出库</a>
+										</c:if>
+									
 										<a href="<%=basePath%>sinfoctrl/listPage1.do?soid=${k.sorderId }" target="_self">查看详情</a>
-											<a href="delete.do?soid=${k.sorderId}"onclick="return confirm('是否确定删除？')" target="_self">删除</a>
+										<a href="delete.do?soid=${k.sorderId}"onclick="return confirm('是否确定删除？')" target="_self">删除</a>
 											</td>
 											</tr>
 								</c:forEach>

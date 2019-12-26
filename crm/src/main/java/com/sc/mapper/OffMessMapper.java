@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
 public interface OffMessMapper {
 	
 	
-	public List<OffMess> sousuo(String starch);
+	public List<OffMess> sousuo(@Param("sender")String sender,@Param("starch")String starch);
 	
 	
 	public void write(OffMess m);

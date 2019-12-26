@@ -275,7 +275,7 @@ where m.messid=#{mid}
 
   
   <select id="sousuo"  resultMap="BaseResultMap" parameterType="com.sc.entity.OffMessExample">
-  		select * from OFF_MESS  where title like concat(concat('%',#{starch}),'%') and sender='花花'
+  		select * from OFF_MESS  where title like concat(concat('%',#{starch}),'%') and sender=#{sender}
   </select>
   
   

@@ -213,34 +213,43 @@ public class SysRoleCtrl {
 			
 			for (SysPowerRole spr : list) {
 				int j=0;
-				for (int i = 0; i < pIds.length; i++) {
-					if(spr.getPowerId()==pIds[i]){
-						j=j+1;
-						break;
+				if(pIds!=null){
+					for (int i = 0; i < pIds.length; i++) {
+						if(spr.getPowerId()==pIds[i]){
+							j=j+1;
+							break;
+						}
 					}
 				}
+					
 				if(j==0){
 					this.sysPowerRoleService.delete(spr);
 				}
 			}
-			for (int i = 0; i < pIds.length; i++) {
-				int z=0;
-				for (SysPowerRole spr : list) {
-					if(pIds[i]==spr.getPowerId()){
-						z=z+1;
-						break;
+			if(pIds!=null){
+				for (int i = 0; i < pIds.length; i++) {
+					int z=0;
+					for (SysPowerRole spr : list) {
+						if(pIds[i]==spr.getPowerId()){
+							z=z+1;
+							break;
+						}
+					}
+					if(z==0){
+						sysPowerRole.setPowerId(pIds[i]);
+						this.sysPowerRoleService.insert(sysPowerRole);
 					}
 				}
-				if(z==0){
-					sysPowerRole.setPowerId(pIds[i]);
+			}
+				
+		}else{
+			if(pIds!=null){
+				for (Long pId : pIds) {
+					sysPowerRole.setPowerId(pId);
 					this.sysPowerRoleService.insert(sysPowerRole);
 				}
 			}
-		}else{
-			for (Long pId : pIds) {
-				sysPowerRole.setPowerId(pId);
-				this.sysPowerRoleService.insert(sysPowerRole);
-			}
+				
 		}
 		mav.setViewName("redirect:roleList.do?updatesuc=yes");
 		return mav;

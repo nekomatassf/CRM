@@ -75,6 +75,7 @@ public class OfficeTaskAssessmentController {
     	d.setCompanyId(t.getCompanyId());
     	System.out.println("公司编号"+t.getCompanyId());
     	d.setFinalUpdataTime(new Date());
+    	d.setTaskIsfinshed("未完成");
         this.officeTaskDetailService.add(d);
         System.out.println("添加新的任务"+d);
     	mav.setViewName("redirect:listpage.do");//重定向到list方法

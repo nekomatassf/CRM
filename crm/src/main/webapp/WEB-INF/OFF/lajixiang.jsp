@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 
-    <title>H+ 后台主题UI框架 - 发件箱</title>
+    <title>H+ 后台主题UI框架 - 垃圾箱</title>
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="<%=basePath %>css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="<%=basePath %>css/animate.min.css" rel="stylesheet">
     <link href="<%=basePath %>css/style.min.css?v=4.0.0" rel="stylesheet"><base target="_blank">
+    <link href="<%=basePath %>css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
 
 </head>
 
@@ -41,10 +42,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <h5>文件夹</h5>
                             <ul class="folder-list m-b-md" style="padding: 0">
                                 <li>
-                                    <a href="../offmessdetactrl/listpagedeta.do"  target="_self"> <i class="fa fa-envelope-o"></i> 收件箱</a>
+                                    <a  target="_self" href="../offmessdetactrl/listpagedeta.do"> <i class="fa fa-envelope-o"></i> 收件箱</a>
                                 </li>
                                 <li>
-                                    <a href="../offmessctrl/listpage.do"  target="_self"> <i class="fa fa-envelope-o"></i> 已发送</a>
+                                    <a target="_self" href="../offmessctrl/listpage.do"> <i class="fa fa-envelope-o"></i> 已发送</a>
                                 </li>
                                 
                                 <li>
@@ -62,33 +63,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="col-sm-9 animated fadeInRight">
                 <div class="mail-box-header">
 
-                    <form target="_self" method="get" action="../offmessctrl/sousuo.do" class="pull-right mail-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control input-sm" name="search" placeholder="搜索邮件标题">
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-sm btn-primary">
-                                    	搜索
-                                </button>   
-                            </div>
-                        </div>
-                    </form>
+                    
                     <h2>
-                    已发送(${p.total })
+                    垃圾箱 (${p.total })
                 </h2>
                     <div class="mail-tools tooltip-demo m-t-md">
                         <div class="btn-group pull-right">
-                         <a  target="_self"  href="../offmessctrl/listpage.do?pageNum=${p.prePage }"  >
+                         <a target="_self"  href="../offmessdetactrl/listlajixiang.do?pageNum=${p.prePage }">
                             <button class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i>
                             </button></a>
-                            <a  target="_self" href="../offmessctrl/listpage.do?pageNum=${p.nextPage }"  ><button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i>
+                            <a  target="_self" href="../offmessdetactrl/listlajixiang.do?pageNum=${p.nextPage }"><button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i>
                             </button>
                              </a>
 
                         </div>
+                        <a target="_self" href="../offmessdetactrl/listlajixiang.do">
+                        <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left" title="
+邮件列表" id="btn1"><i class="fa fa-refresh"></i> 刷新</button></a>
                         
-   <a target="_self" href="../offmessctrl/listpage.do"> <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left" title="邮件列表">
-    <i class="fa fa-refresh"></i> 刷新</button></a>
-                       
+
 
                     </div>
                 </div>
@@ -98,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <tbody>
                             <tr class="unread">
                                 <td class="check-mail">
-                                   
+                                    删除
                                 </td>
                                 <td class="mail-ontact">发件人</td>
                                 
@@ -106,39 +99,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                
                                 <td class=""><i class="fa fa-paperclip"></i></td>
                                 
-                                 <td class="mail-subject">收件人 </td>
+                                 <td class="mail-subject">操作</td>
                                 
                                 <td class="text-right mail-date">发送时间</td>
                             </tr>
                              
-                             <c:forEach items="${p.list }" var="m">
+                             <c:forEach items="${p.list }" var="d">
                             <tr class="read">
                                 <td class="check-mail">
+                                     <button   class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="永久删除">
+                                     <a id="a1" target="_self" onclick="del(${d.detailsid })"
+                                     href="javascript:;"  >
                                     
+                                     <i class="fa fa-trash-o"></i></a>
+                        			</button>
+                        			
+                        			 
+                            
                                 </td>
                                 
-                                <td class="mail-ontact"><a target="_self" href="../offmessctrl/details.do?mid=${m.messid }">${m.sender }</a> 
+                                <td class="mail-ontact"><a target="_self" href="">${d.offMess.sender }</a> 
                                 </td>
                                 
-                                <td class="mail-subject"><a target="_self" href="../offmessctrl/details.do?mid=${m.messid }">${m.title }</a>
+                                <td class="mail-subject"><a target="_self" href="">${d.offMess.title }</a>
                                 </td>
                                 
-                                <td class=""><i class="fa fa-paperclip"> </i>
-                               
+                                <td class=""><i class="fa fa-paperclip"></i><a target="_self" href="">
                                 </td>
                                 
-                                <td class="text-right mail-date">
-                                  <c:forEach items="${m.offMessdeta}" var="d">
-                                 ${d.uanme}
-                                 </c:forEach> 
-                                 <a target="_self" href="../offmessctrl/details.do?mid=${m.messid }">
-                                 <%-- <c:forEach items="${u}" var="u">
-                                 ${u.usersName}
-                                 </c:forEach> --%>
-                                 </td>
+                                <td class="text-right mail-date"><a target="_self" href="../offmessdetactrl/huifu.do?did=${d.detailsid }">恢复</a></td>
                                 
-                                <td class="text-right mail-date"><fmt:formatDate value="${m.lasttime }" pattern="yyyy-MM-dd HH:mm:ss"/>
-                                <a target="_self" href="../offmessctrl/details.do?mid=${m.messid }">
+                                <td class="text-right mail-date"><a target="_self" href=""><fmt:formatDate value="${d.lasttime }" pattern="yyyy-MM-dd HH:mm:ss"/>
                                 </td>
                                 
                             </tr>
@@ -150,12 +141,60 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
     </div>
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.5"></script>
-    <script src="js/content.min.js?v=1.0.0"></script>
-    <script src="js/plugins/iCheck/icheck.min.js"></script>
+    <script language="javascript">
+    
+</script>
+
+
+    <script src="<%=basePath %>js/jquery.min.js?v=2.1.4"></script>
+    <script src="<%=basePath %>js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="<%=basePath %>js/content.min.js?v=1.0.0"></script>
+    <script src="<%=basePath %>js/plugins/iCheck/icheck.min.js"></script>
+     <script src="<%=basePath %>js/plugins/sweetalert/sweetalert.min.js"></script>
+   
     <script>
-        $(document).ready(function(){$(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green",})});
+       //swal({title:"欢迎使用SweetAlert",text:"Sweet Alert 是一个替代传统的 JavaScript Alert 的漂亮提示效果。"})
+      
+        
+        
+        $(document).ready(function(){
+      
+           $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green",})
+        
+           
+        });
+        
+        function del(did){
+        
+               swal({title:"您确定要删除这条信息吗",
+               		text:"删除后将无法恢复，请谨慎操作！",
+               		type:"warning",
+               		showCancelButton:true,
+               		confirmButtonColor:"#DD6B55",
+               		confirmButtonText:"删除",
+               		closeOnConfirm:false},
+               		function(){
+               		
+			  			$.ajax({
+			  				type: "post",
+			  				url: "../offmessdetactrl/cddel.do?did="+did,
+			  				dataType:"json",
+			  				success:function(d){
+			  				    console.log(11111)
+			  					swal({title:"删除成功！",text:"您已经永久删除了这条信息。",type:"success"},function(){
+			  					    $("#btn1").click();
+			  					});
+			  					
+			  				}
+			  			});
+               		    
+               		 }
+               	)
+        
+        }
+        
+        
+        
     </script>
     <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
 </body>

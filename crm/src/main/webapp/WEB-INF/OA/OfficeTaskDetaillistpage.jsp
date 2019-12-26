@@ -59,46 +59,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                         <table class="table table-striped table-bordered table-hover dataTables-example">
                             <thead>
-                                <tr style="font-family:宋体; font-size: 8px;">
-                                    <th style="font-family:宋体; font-size: 8px;">编号</th>
-                                    <th style="font-family:宋体; font-size: 8px;">任务编号</th>
-                                    <th style="font-family:宋体; font-size: 8px;">接受用户</th>
-                                    <th style="font-family:宋体; font-size: 8px;">是否完成</th>
-                                    <th style="font-family:宋体; font-size: 8px;">状态</th>
-                                    <th style="font-family:宋体; font-size: 8px;">公司编号</th>
-                                    <th style="font-family:宋体; font-size: 8px;">最后修改时间</th>
-                                    <th style="font-family:宋体; font-size: 8px;" colspan="3"><center>操作</center></th>
+                                <tr style="font-family:宋体; ">
+                                    <th style="font-family:宋体; ">编号</th>
+                                    <th style="font-family:宋体; ">任务编号</th>
+                                    <th style="font-family:宋体; ">接受用户</th>
+                                    <th style="font-family:宋体; ">是否完成</th>
+                                    <th style="font-family:宋体; ">状态</th>
+                                    <th style="font-family:宋体; ">公司编号</th>
+                                    <th style="font-family:宋体; ">最后修改时间</th>
+                                    <th style="font-family:宋体; " colspan="3"><center>操作</center></th>
                                 </tr>
                             </thead>
         <tbody>
          <c:forEach items="${p.list }" var="d">
-            <tr style="font-family:宋体; font-size: 8px;">
-               <td style="font-family:宋体; font-size: 8px;">
+            <tr style="font-family:宋体; ">
+               <td style="font-family:宋体; ">
                  ${d.taskDetailId }
                </td>
                
-               <td style="font-family:宋体; font-size: 8px;">
+               <td style="font-family:宋体; ">
                  ${d.taskId}
                </td>
-               <td style="font-family:宋体; font-size: 8px;">
+               <td style="font-family:宋体; ">
                  ${d.taskUserId }
                </td>
-               <td style="font-family:宋体; font-size: 8px;">
+               <td style="font-family:宋体; ">
                  ${d.taskIsfinshed }
                </td>
-               <td style="font-family:宋体; font-size: 8px;">
+               <td style="font-family:宋体; ">
                  ${d.status }
                </td>
-               <td style="font-family:宋体; font-size: 8px;">
+               <td style="font-family:宋体; ">
                  ${d.companyId }
                </td>
-               <td style="font-family:宋体; font-size: 8px;">
+               <td style="font-family:宋体; ">
                <fmt:formatDate value="${d.finalUpdataTime }" pattern="yyyy-MM-dd"/>
                </td>
                
-               <td style="font-family:宋体; font-size: 8px;">
-                  <center><button type="button" class="btn btn-primary" data-toggle="modal" onclick="return update(${d.taskDetailId })">
-                                                                             修改 
+               <td style="font-family:宋体; ">
+                  <center><button type="button" class="btn btn-primary" data-toggle="modal" target="_self" onclick="return update(${d.taskDetailId })">
+                                                                             √
                     </button></center>
                  </td>
                    <td>                              
@@ -143,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </div>
             </tr>
          </c:forEach>
-          <tr style="font-family:宋体; font-size: 8px;">
+          <tr style="font-family:宋体; ">
              <td style="text-align: center;" colspan="4">
                 <a href="<%=basePath %>OfficeTaskDetailController/listpage.do?pageNum=${p.firstPage }" target="_self">首页</a>
                 <a href="<%=basePath %>OfficeTaskDetailController/listpage.do?pageNum=${p.prePage }" target="_self">上一页</a>
@@ -161,6 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript">
         function  deletw(e){
         if(confirm("确认删除")==true){
+        
         location.href="<%=basePath %>OfficeTaskDetailController/delete.do?taskDetailId="+e;
         }
         };

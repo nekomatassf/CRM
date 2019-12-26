@@ -27,27 +27,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
       <center>
          <form action="OfficeKpictrl/OfficeKpiupdate.do" method="post" target="_self">
-         <table style="font-family:宋体; font-size: 8px;">
+         <table style="font-family:宋体; ">
           
-           <tr style="font-family:宋体; font-size: 8px;">
-              <td style="font-family:宋体; font-size: 8px;">任务编号</td>
-              <td style="font-family:宋体; font-size: 8px;"><input type="text" name="kpiId" value="${kpi.kpiId}" readonly="readonly"></td>
+           <tr style="font-family:宋体; ">
+              <td style="font-family:宋体; ">任务编号</td>
+              <td style="font-family:宋体; "><input type="text" name="kpiId" value="${kpi.kpiId}" readonly="readonly"></td>
            </tr>
-           <tr style="font-family:宋体; font-size: 8px;">
-              <td style="font-family:宋体; font-size: 8px;">任务考核指标</td>
-              <td style="font-family:宋体; font-size: 8px;"><input type="text" name="kpiKpi" value="${kpi.kpiKpi}"></td>
+           <tr style="font-family:宋体; ">
+              <td style="font-family:宋体; ">任务考核指标</td>
+              <td style="font-family:宋体; "><input type="text" name="kpiKpi" value="${kpi.kpiKpi}"></td>
            </tr>
-           <tr style="font-family:宋体; font-size: 8px;">
-              <td style="font-family:宋体; font-size: 8px;">备注信息</td>
-              <td style="font-family:宋体; font-size: 8px;"><input type="text" name="kpiDetail" value="${kpi.kpiDetail }"></td>
+           <tr style="font-family:宋体; ">
+              <td style="font-family:宋体; ">备注信息</td>
+              <td style="font-family:宋体; "><input type="text" name="kpiDetail" value="${kpi.kpiDetail }"></td>
            </tr>
-            <tr style="font-family:宋体; font-size: 8px;">
-              <td style="font-family:宋体; font-size: 8px;">公司编号</td>
-              <td style="font-family:宋体; font-size: 8px;"><input type="text" name="companyId" value=" ${kpi.companyId }"></td>
+            <tr style="font-family:宋体; ">
+              <td style="font-family:宋体; ">公司编号</td>
+              <td style="font-family:宋体; "><input type="text" name="companyId" value=" ${kpi.companyId }"></td>
             </td>
             </tr>
            
-            <tr style="font-family:宋体; font-size: 8px;"><td style="font-family:宋体; font-size: 8px;"><input type="submit" value="提交"></td><td><input type="reset" value="重置"></td></tr>
+            <tr style="font-family:宋体; "><td style="font-family:宋体; "><input type="submit" value="提交"></td><td><input type="reset" value="重置"></td></tr>
          </table>
          </form> 
       </center>

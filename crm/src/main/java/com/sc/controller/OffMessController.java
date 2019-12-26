@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,10 @@ public class OffMessController {
 	SysUsersService sysUsersService;
 	@Autowired
 	OffMessdetaService offMessdetaService;
+	@Autowired
+	HttpSession httpSession;
+	
+	
 	
 	
 	//搜索
@@ -42,7 +47,8 @@ public class OffMessController {
 			HttpServletRequest req){
 		String starch = req.getParameter("search");
 		System.out.println("进入搜索方法！"+starch);
-		PageInfo<OffMess> dd = offMessService.sousuo(pageNum, pageSize, starch);
+		SysUsers user =(SysUsers)this.httpSession.getAttribute("nowuser");
+		PageInfo<OffMess> dd = offMessService.sousuo(pageNum, pageSize,user.getUsersName(), starch);
 		
 		for (OffMess x : dd.getList()) {
 			System.out.println("主"+x+"\n");
@@ -86,7 +92,10 @@ public class OffMessController {
 			@RequestParam(defaultValue="1")Integer pageNum,
 			@RequestParam(defaultValue="5")Integer pageSize){
 		System.out.println("进入短消息控制器方法");
-		PageInfo<OffMess> dd = offMessService.selectdeta(pageNum, pageSize,"花花");
+		SysUsers user =(SysUsers)this.httpSession.getAttribute("nowuser");
+		
+		
+		PageInfo<OffMess> dd = offMessService.selectdeta(pageNum, pageSize,user.getUsersName());
 		
 		List<Long> reid=new ArrayList();
 		
@@ -110,7 +119,8 @@ public class OffMessController {
 	
 	@RequestMapping("/goadd.do")
 	public ModelAndView goadd(ModelAndView mav){
-		List<SysUsers> users=this.sysUsersService.selectAllNOSelf(5L);
+		SysUsers user =(SysUsers)this.httpSession.getAttribute("nowuser");
+		List<SysUsers> users=this.sysUsersService.selectAllNOSelf(user.getUsersId());
 		mav.addObject("users", users);
 		
 		 for (SysUsers u : users) {
@@ -125,8 +135,10 @@ public class OffMessController {
 	public ModelAndView add(ModelAndView mav,MultipartFile upload,HttpServletRequest req,
 			OffMess m,Long [] sid) throws IllegalStateException, IOException{
 		System.out.println("开始发送短消息"+m);
+		SysUsers user =(SysUsers)this.httpSession.getAttribute("nowuser");
 		m.setLasttime(new Date());
-		m.setSender("花花");
+		m.setSender(user.getUsersName());
+		m.setCompanyid(user.getCompanyId());
 		this.offMessService.write(m);
 		for (Long id : sid) {
 			System.out.println(id+" 接收者编号");

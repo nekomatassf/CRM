@@ -90,12 +90,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
     </div>
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.5"></script>
-    <script src="js/content.min.js?v=1.0.0"></script>
-    <script src="js/plugins/validate/jquery.validate.min.js"></script>
-    <script src="js/plugins/validate/messages_zh.min.js"></script>
-    <script src="js/demo/form-validate-demo.min.js"></script>
+    <script src="<%=basePath %>js/jquery.min.js?v=2.1.4"></script>
+    <script src="<%=basePath %>js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="<%=basePath %>js/content.min.js?v=1.0.0"></script>
+    <script src="<%=basePath %>js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="<%=basePath %>js/plugins/validate/messages_zh.min.js"></script>
+    <script src="<%=basePath %>js/demo/form-validate-demo.min.js"></script>
     <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
 </body>
 

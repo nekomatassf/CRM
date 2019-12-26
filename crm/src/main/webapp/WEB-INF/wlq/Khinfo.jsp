@@ -52,6 +52,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                          <button type="button" class="btn btn-w-m btn-primary">添加客户</button>
                          </a>
                          <button type="button" class="btn btn-w-m btn-primary">总条数：${p.total}</button>
+                         <a href="SalekhinfoController/list.do" target="_self">
+                         <button type="button" class="btn btn-w-m btn-primary">返回上一级</button>
+                         </a>
                         <br>
 
                         <div class="ibox-content">
@@ -177,7 +180,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                               &emsp;&emsp;&emsp;&emsp;<span>开户银行：<input type="text" name="depositBank"  value="${info.depositBank}"></span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span>银行账户：<input type="text" name="bankAccount"  value="${info.bankAccount}"></span>
                                               </div>
                                                                                             <div>
-                                              &emsp;&emsp;&emsp;&emsp;<span>下次联系时间：<input type="text" name="nextContactTime"  value="<fmt:formatDate value="${info.nextContactTime}" pattern="yyyy-MM-dd HH:mm:ss"/>"></span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span>电子邮箱：<input type="text" name="eMail"  value="${info.eMail}"></span>
+                                              &emsp;&emsp;&emsp;&emsp;<span>公司编号：<input type="text" name="companyId"  value="${info.companyId}"></span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span>电子邮箱：<input type="text" name="eMail"  value="${info.eMail}"></span>
                                               </div>
                                                                                             <div>
                                               &emsp;&emsp;&emsp;&emsp;<span>SIC编码：<input type="text" name="sicCode"  value="${info.sicCode}"></span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span>支付方式：<input type="text" name="payMethod"  value="${info.payMethod}"></span>
@@ -186,7 +189,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                               &emsp;&emsp;&emsp;&emsp;<span>是否有效：<input type="text" name="isEffective"  value="${info.isEffective}"></span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span>详细地址：<input type="text" name="detailedAddress"  value="${info.detailedAddress}"></span>
                                               </div>
                                                                                             <div>
-                                              &emsp;&emsp;&emsp;&emsp;<span>备注信息：<input type="text" name="remarksInfo"  value="${info.remarksInfo}"></span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span>公司编号：<input type="text" name="companyId"  value="${info.companyId}"></span>
+                                              &emsp;&emsp;&emsp;&emsp;<span>备注信息：<input type="text" name="remarksInfo"  value="${info.remarksInfo}"></span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span>下次联系时间：<input type="text" name="nextContactTime"  value="<fmt:formatDate value="${info.nextContactTime}" pattern="yyyy-MM-dd HH:mm:ss"/>"></span>
                                               </div>
                                                        
                                         </div>

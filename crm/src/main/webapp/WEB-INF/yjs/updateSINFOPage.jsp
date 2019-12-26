@@ -119,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
-                                    <button class="btn btn-primary" type="submit">确认添加</button>
+                                    <button class="btn btn-primary" type="submit">修改</button>
                                     <button class="btn btn-white" type="reset">清空</button>
                                 </div>
                             </div>

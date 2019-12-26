@@ -32,7 +32,7 @@ public class cgdXqCtrl {
 	
 	//采购单详情页面显示
 	
-		@RequestMapping("/cgdxqList.do")
+		@RequestMapping("/cgdxqList1.do")
 		public ModelAndView cgdxqList(ModelAndView mav,
 				@RequestParam(defaultValue="1")Integer pageNum,
 				@RequestParam(defaultValue="5")Integer pageSize,
@@ -66,10 +66,21 @@ public class cgdXqCtrl {
 			
 			mav.addObject("pcgdxq",ii);
 			mav.addObject("cgdId", cgdId);
-			mav.setViewName("fhw/JH-cgdXqListPage");// 路径是：/WEB-INF/userslistpage.jsp
+			mav.setViewName("yjs/selectRukuPage");// 路径是：/WEB-INF/userslistpage.jsp
 			return mav;
 		}
 	
+		//通过此方法进入，入库页面
+		@RequestMapping("/cgdxqList.do")
+		public ModelAndView rukuList(ModelAndView mav,
+				@RequestParam(defaultValue="1")Integer pageNum,
+				@RequestParam(defaultValue="5")Integer pageSize,
+				JhCgdxq cgdxq){
+			mav.addObject("pcgdxq", jhCgdxqService.selectpage1(pageNum, pageSize, cgdxq));
+			System.out.println("通过cgdxqList.do进入，入库页面");
+			mav.setViewName("yjs/selectRukuPage");
+			return mav;
+		}
 	
 	
 	//删除

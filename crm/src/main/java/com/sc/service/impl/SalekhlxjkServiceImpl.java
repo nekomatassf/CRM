@@ -83,6 +83,13 @@ public class SalekhlxjkServiceImpl implements SalekhlxjkService {
 		
 	}
 
+	@Override
+	public void fkupdate(SaleKhfeedback f) {
+		if(f!=null){
+			this.saleKhfeedbackMapper.updateByPrimaryKey(f);
+		}
+	}
+
 
 
 }

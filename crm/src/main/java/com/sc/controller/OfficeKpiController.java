@@ -12,8 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sc.entity.OfficeKpi;
 import com.sc.entity.OfficeTaskAssessment;
+import com.sc.entity.OfficeTaskDetail;
 import com.sc.service.OfficeKpiService;
 import com.sc.service.OfficeTaskAssessmentService;
+import com.sc.service.OfficeTaskDetailService;
 
 @Controller
 @RequestMapping("/OfficeKpictrl")
@@ -22,6 +24,8 @@ public class OfficeKpiController {
 	OfficeKpiService OfficeKpiService ;
 	@Autowired 
 	OfficeTaskAssessmentService OfficeTaskAssessmentService;
+	@Autowired
+	OfficeTaskDetailService officeTaskDetailService;
     @RequestMapping("/list.do")
 		public ModelAndView list(ModelAndView mav){
 			
@@ -74,7 +78,7 @@ public class OfficeKpiController {
 		 return mav;
 	 }
 	 @RequestMapping("/addofficeKpi.do")
-	 public ModelAndView addofficeKpi(ModelAndView mav,OfficeKpi k,OfficeTaskAssessment t){
+	 public ModelAndView addofficeKpi(ModelAndView mav,OfficeKpi k,OfficeTaskAssessment t, OfficeTaskDetail d){
 		  k.setFinalUpdataTime(new Date());
 		  t.setFinalUpdateTime(k.getFinalUpdataTime());
 		 t.setCompanyId(k.getCompanyId());
@@ -84,6 +88,15 @@ public class OfficeKpiController {
 		  this.OfficeKpiService.add(k);
 		  this.OfficeTaskAssessmentService.add(t);
 		  //this.OfficeTaskAssessmentService.toadd();
+		  System.out.println("获取到新的id为￥￥￥￥￥￥￥￥￥"+t.getTaskId());
+	    	d.setTaskId(t.getTaskId());
+	    	System.out.println("添加新的任务"+t);
+	    	d.setCompanyId(k.getCompanyId());
+	    	System.out.println("公司编号"+k.getCompanyId());
+	    	d.setFinalUpdataTime(new Date());
+	    	d.setStatus("合作中");
+	    	d.setTaskIsfinshed("未完成");
+	        this.officeTaskDetailService.add(d);
 		 mav.setViewName("redirect:listpage.do");
 		 return mav;
 		 }
